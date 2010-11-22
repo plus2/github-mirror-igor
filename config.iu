@@ -1,0 +1,14 @@
+require 'rubygems'
+require 'bundler'
+Bundler.setup
+
+$LOAD_PATH << ::File.expand_path('../lib', __FILE__)
+
+require 'github_mirror'
+
+use Igor::Logger, $stderr
+use Igor::PayloadParsers::JSON
+
+run GithubMirror::Mirror.new("~/tmp/github-mirrors")
+
+# vim: ft=ruby

@@ -1,0 +1,33 @@
+GIT
+  remote: git://github.com/plustwo/igor.git
+  revision: 32cf767d4f1554fbae2942e1aba4688eebcf0ae1
+  branch: rebirth_clean
+  specs:
+    igor (0.0.1)
+      amqp (~> 0.6.7)
+      angry_hash (~> 0.3.2)
+      lachie-tapp (~> 1.1.0)
+      thor (~> 0.14.3)
+      yajl-ruby (~> 0.7.8)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    amqp (0.6.7)
+      eventmachine (>= 0.12.4)
+    angry_hash (0.3.2)
+    angry_shell (0.0.1)
+    bunny (0.6.0)
+    eventmachine (0.12.10)
+    lachie-tapp (1.1.0)
+    thor (0.14.6)
+    yajl-ruby (0.7.8)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  angry_shell (~> 0.0.1)
+  bunny
+  igor!
+  lachie-tapp

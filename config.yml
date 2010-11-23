@@ -1,2 +1,4 @@
 queues:
   - git-mirror
+env:
+  mirrors: ~/mirrors

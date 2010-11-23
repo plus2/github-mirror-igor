@@ -5,11 +5,8 @@ module GithubMirror
   class Mirror
     include AngryShell::ShellMethods
 
-    def initialize(root)
-      @root = Pathname(root).expand_path
-    end
-
     def call(env)
+      root = Pathname(env['mirrors']).expand_path
       payload = env['igor.payload']
 
       owner = payload['repository']['owner']['name']
@@ -17,7 +14,7 @@ module GithubMirror
 
       # XXX validate
 
-      repo = @root+owner+"#{name}.git"
+      repo = root+owner+"#{name}.git"
       repo.parent.mkpath
 
       if repo.exist?

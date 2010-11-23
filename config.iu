@@ -9,6 +9,6 @@ require 'github_mirror'
 use Igor::Logger, $stderr
 use Igor::PayloadParsers::JSON
 
-run GithubMirror::Mirror.new("~/tmp/github-mirrors")
+run GithubMirror::Mirror.new
 
 # vim: ft=ruby

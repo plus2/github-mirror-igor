@@ -10,9 +10,10 @@ module GithubMirror
         env['repository.owner'] = Hash === repo['owner'] ? repo['owner']['name'] : repo['owner']
         env['repository.name' ] = repo['name']
 
-      # XXX validate
-
-      @igor.call(env)
+        @igor.call(env)
+      else
+        env['igor.errors'].puts "unrecognised payload: keys=#{env['igor.payload'].keys.inspect}"
+      end
     end
   end
 end

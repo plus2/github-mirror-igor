@@ -25,6 +25,22 @@ class Mirror < Thor
       orgs.include? repo['organization']
     }.map {|repo| AngryHash[repo]}
 
+    Bunny.run do |b|
+      ex = b.exchange(config.exchange, :type => :topic)
+      repos.each do |repo|
+        message = {
+          'repository' => {
+            'owner' => repo.owner,
+            'name'  => repo.name
+          }
+        }
+
+        key = "push.#{repo.owner}.#{repo.name}"
+
+        puts "simulating push #{key}"
+
+        ex.publish(Yajl::Encoder.encode(message), :key => key)
+      end
     end
   end
 

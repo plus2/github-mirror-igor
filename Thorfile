@@ -9,6 +9,10 @@ class Mirror < Thor
     q.bind(e, :key => 'push.#')
   end
 
+  desc "all", "mirror all repos"
+  def all
+  end
+
   protected
   def bunny
     @bunny ||= Bunny.new.tap {|b| b.start} # XXX config

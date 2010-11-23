@@ -1,18 +1,14 @@
 require 'angry_shell'
-require 'pathname'
 
 module GithubMirror
   class Mirror
     include AngryShell::ShellMethods
 
     def call(env)
-      root = Pathname(env['mirrors']).expand_path
-      payload = env['igor.payload']
+      root    = env['mirror.root']
 
-      owner = payload['repository']['owner']['name']
-      name  = payload['repository']['name']
-
-      # XXX validate
+      owner = env['repository.owner']
+      name  = env['repository.name']
 
       repo = root+owner+"#{name}.git"
       repo.parent.mkpath

@@ -1,4 +1,10 @@
 require 'bunny'
+require 'angry_hash'
+require 'yaml'
+require 'tapp'
+require 'net/https'
+require 'open-uri'
+require 'yajl'
 
 class Mirror < Thor
   desc "bind", "bind queues"
@@ -11,6 +17,15 @@ class Mirror < Thor
 
   desc "all", "mirror all repos"
   def all
+    gh = config.github
+
+    orgs = gh.organizations
+
+    repos = Yajl::Parser.parse( open("https://github.com/api/v2/json/organizations/repositories?login=#{gh.login}&token=#{gh.token}") )['repositories'].select {|repo|
+      orgs.include? repo['organization']
+    }.map {|repo| AngryHash[repo]}
+
+    end
   end
 
   protected

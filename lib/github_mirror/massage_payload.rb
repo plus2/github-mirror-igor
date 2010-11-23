@@ -6,12 +6,9 @@ module GithubMirror
       payload = env['igor.payload']
 
       if repo = payload['repository']
-        env['repository.owner'] = repo['owner']['name']
+        # XXX validate
+        env['repository.owner'] = Hash === repo['owner'] ? repo['owner']['name'] : repo['owner']
         env['repository.name' ] = repo['name']
-      elsif repo = payload['forced_repository']
-        env['repository.owner'] = repo['owner']
-        env['repository.name' ] = repo['name']
-      end
 
       # XXX validate
 

@@ -17,7 +17,8 @@ module GithubMirror
         sh("git fetch", :cwd => repo).run
       else
         url = "git@github.com:#{owner}/#{name}.git"
-        sh("git clone --bare #{url} #{repo}").run
+        sh("git clone --mirror #{url} #{repo}").run
+
       end
     end
   end

@@ -3,6 +3,8 @@ module GithubMirror
     def initialize(igor); @igor=igor end
 
     def call(env)
+      payload = env['igor.payload']
+
       if repo = payload['repository']
         env['repository.owner'] = repo['owner']['name']
         env['repository.name' ] = repo['name']

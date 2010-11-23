@@ -10,7 +10,7 @@ module GithubMirror
         @igor.call(env)
       rescue
         env['igor.errors'].puts "problem prepareing mirror destination '#{env['mirrors']}': [#{$!.class}] #{$!}"
-        $!.backtrace.each {|line| env['igor.errors'].print line}
+        $!.backtrace.each {|line| env['igor.errors'].puts line}
       end
     end
   end

@@ -11,6 +11,7 @@ module GithubMirror
       rescue
         env['igor.errors'].puts "problem prepareing mirror destination '#{env['mirrors']}': [#{$!.class}] #{$!}"
         $!.backtrace.each {|line| env['igor.errors'].puts line}
+        nil
       end
     end
   end

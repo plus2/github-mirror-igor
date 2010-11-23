@@ -27,7 +27,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  angry_hash
   angry_shell (~> 0.0.1)
   bunny
   igor!
   lachie-tapp
+  yajl-ruby

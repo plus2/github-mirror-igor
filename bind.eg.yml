@@ -1,0 +1,8 @@
+github:
+  login: FILL_ME_IN
+  token: FILL_ME_IN
+  organizations:
+    - YOUR_ORGS
+
+exchange: YOUR_EXCHANGE.git
+

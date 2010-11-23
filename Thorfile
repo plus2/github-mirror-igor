@@ -48,6 +48,10 @@ class Mirror < Thor
   def bunny
     @bunny ||= Bunny.new.tap {|b| b.start} # XXX config
   end
+
+  def config
+    @config ||= AngryHash[ YAML.load_file( File.expand_path("../bind.yml", __FILE__) ) ]
+  end
 end
 
 # vim: ft=ruby

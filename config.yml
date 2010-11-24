@@ -5,5 +5,10 @@ queues:
         kind: topic
         key: push.#
 
+response_exchange:
+  kind: topic
+  name: plus2.messages
+  key: campfire.General
+
 env:
   mirrors: ~/mirrors

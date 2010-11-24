@@ -13,6 +13,7 @@ module GithubMirror
         @igor.call(env)
       else
         env['igor.errors'].puts "unrecognised payload: keys=#{env['igor.payload'].keys.inspect}"
+        {:app => 'gh-mirror', :msg => "unrecognised payload"}
       end
     end
   end

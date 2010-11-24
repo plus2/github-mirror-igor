@@ -20,6 +20,8 @@ module GithubMirror
         sh("git clone --mirror #{url} #{repo}").run
 
       end
+
+      {:app => 'gh-mirror', :msg => "fetched #{owner}/#{name}"}
     end
   end
 end

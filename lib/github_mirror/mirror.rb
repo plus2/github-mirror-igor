@@ -21,7 +21,7 @@ module GithubMirror
 
       end
 
-      {:app => 'gh-mirror', :msg => "fetched #{owner}/#{name}"}
+      nil
     end
   end
 end

@@ -7,14 +7,6 @@ require 'open-uri'
 require 'yajl'
 
 class Mirror < Thor
-  desc "bind", "bind queues"
-  def bind
-    q = bunny.queue("git-mirror") # XXX config
-    e = bunny.exchange('plus2.git', :type => 'topic')
-
-    q.bind(e, :key => 'push.#')
-  end
-
   desc "all", "mirror all repos"
   def all
     gh = config.github

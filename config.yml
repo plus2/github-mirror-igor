@@ -1,4 +1,9 @@
 queues:
-  - git-mirror
+  - name: git-mirror
+    bindings:
+      - exchange: plus2.git
+        kind: topic
+        key: push.#
+
 env:
   mirrors: ~/mirrors
